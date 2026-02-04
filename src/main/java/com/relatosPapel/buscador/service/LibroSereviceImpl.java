@@ -67,7 +67,7 @@ public class LibroSereviceImpl implements LibroService {
     public Boolean deleteLibro(String libroId) {
         Libro libro = getLibro(libroId);
 
-        if (libroId != null) {
+        if (libro != null) {
             libroRepository.delete(libro);
             return Boolean.TRUE;
         } else {

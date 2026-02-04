@@ -99,14 +99,14 @@ public class LibroController {
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Void.class))
     )
     @ApiResponse(
-            responseCode = "404",
+            responseCode = "204",
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Void.class)),
             description = "No se ha encontrado ningún libro con el identificador proporcionado."
     )
     public ResponseEntity<Void> deleteLibro(@PathVariable String libroId) {
         Boolean deleted = libroService.deleteLibro(libroId);
         if (Boolean.TRUE.equals(deleted)) {
-            return ResponseEntity.ok().build();
+            return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.notFound().build();
         }
