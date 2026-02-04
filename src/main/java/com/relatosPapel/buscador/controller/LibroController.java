@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
+import java.time.LocalDate;
 import java.util.*;
 
 @RequiredArgsConstructor
@@ -46,7 +47,7 @@ public class LibroController {
                     example = "Arturo Pérez", required = false)
             @RequestParam(required = false) String autor,
             @Parameter(name = "fechaPublicacion", description = "Fecha de publicación del libro", example = "2026-01-01", required = false)
-            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaPublicacion,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaPublicacion,
             @Parameter(name = "categoria", description = "Categoría del libro. Debe ser exacta",
                     example = "Romántica", required = false)
             @RequestParam(required = false) String categoria,

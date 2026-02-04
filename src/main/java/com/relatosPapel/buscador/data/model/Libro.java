@@ -5,7 +5,7 @@ import com.relatosPapel.buscador.data.utils.Consts;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "libros")
@@ -31,7 +31,7 @@ public class Libro {
     private String isbn;
 
     @Column(name = Consts.FECHA_PUBLICACION)
-    private Date fechaPublicacion;
+    private LocalDate fechaPublicacion;
 
     @Column(name = Consts.CATEGORIA, nullable = false)
     private String categoria;
@@ -48,7 +48,6 @@ public class Libro {
     public void update(LibroDTO libroDTO) {
         this.titulo = libroDTO.getTitulo();
         this.autor = libroDTO.getAutor();
-        this.fechaPublicacion = libroDTO.getFechaPublicacion();
         this.isbn = libroDTO.getIsbn();
         this.categoria = libroDTO.getCategoria();
         this.valoracion = libroDTO.getValoracion();

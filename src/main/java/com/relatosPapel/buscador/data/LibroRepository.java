@@ -8,7 +8,8 @@ import com.relatosPapel.buscador.data.utils.SearchStatement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.apache.commons.lang3.StringUtils;
-import java.util.Date;
+
+import java.time.LocalDate;
 import java.util.List;
 
 @Repository
@@ -33,7 +34,7 @@ public class LibroRepository {
         libroJpaRepository.delete(libro);
     }
 
-    public List<Libro> search(String titulo, String autor, Date fechaPublicacion, String categoria,
+    public List<Libro> search(String titulo, String autor, LocalDate fechaPublicacion, String categoria,
                               String isbn, Integer valoracion, Boolean visibilidad) {
         SearchCriteria criteria = new SearchCriteria();
 
@@ -46,7 +47,7 @@ public class LibroRepository {
         }
 
         if (fechaPublicacion != null) {
-            criteria.add(new SearchStatement(Consts.FECHA_PUBLICACION, titulo, SearchOperation.EQUAL));
+            criteria.add(new SearchStatement(Consts.FECHA_PUBLICACION, fechaPublicacion, SearchOperation.EQUAL));
         }
 
         if (StringUtils.isNotBlank(categoria)) {

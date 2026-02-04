@@ -5,12 +5,12 @@ import com.relatosPapel.buscador.controller.model.CreateLibroRequest;
 import com.relatosPapel.buscador.controller.model.LibroDTO;
 import com.relatosPapel.buscador.data.model.Libro;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface LibroService {
 
-    List<Libro> getLibros(String titulo, String autor, Date fechaPublicacion, String categoria,
+    List<Libro> getLibros(String titulo, String autor, LocalDate fechaPublicacion, String categoria,
                           String isbn, Integer valoracion, Boolean visibilidad);
 
     Libro getLibro(String libroId);

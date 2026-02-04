@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -29,7 +29,7 @@ public class LibroSereviceImpl implements LibroService {
 
 
     @Override
-    public List<Libro> getLibros(String titulo, String autor, Date fechaPublicacion, String categoria, String isbn, Integer valoracion, Boolean visibilidad) {
+    public List<Libro> getLibros(String titulo, String autor, LocalDate fechaPublicacion, String categoria, String isbn, Integer valoracion, Boolean visibilidad) {
 
         if (StringUtils.hasLength(titulo) || StringUtils.hasLength(autor) || fechaPublicacion !=null || StringUtils.hasLength(categoria)
                 || StringUtils.hasLength(isbn) || valoracion!=null || visibilidad!=null) {
@@ -51,7 +51,7 @@ public class LibroSereviceImpl implements LibroService {
             Libro libro = Libro.builder()
                     .titulo(libroRequest.getTitulo())
                     .autor(libroRequest.getAutor())
-                    .fechaPublicacion(new Date())
+                    .fechaPublicacion(libroRequest.getFechaPublicacion())
                     .isbn(libroRequest.getIsbn())
                     .categoria(libroRequest.getCategoria())
                     .visibilidad(libroRequest.getVisibilidad())

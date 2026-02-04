@@ -2,12 +2,8 @@ spring:
   application:
     name: ms-books-catalogue
   datasource:
-    url: jdbc:h2:mem:librosdb;Mode=PostgreSQL
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    defer-datasource-initialization: true
+    url: jdbc:h2:mem:librosdb;MODE=PostgreSQL
+    driver-class-name: org.h2.Driver
   h2:
     console:
       enabled: true
