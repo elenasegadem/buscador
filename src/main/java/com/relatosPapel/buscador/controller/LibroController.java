@@ -198,6 +198,11 @@ public class LibroController {
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Void.class)),
             description = "Libro no encontrado."
     )
+    @ApiResponse(
+            responseCode = "400",
+            content = @Content(mediaType = "application/json", schema = @Schema(implementation = Void.class)),
+            description = "Datos de entrada inválidos."
+    )
     public ResponseEntity<Libro> updateLibro(@PathVariable String libroId,
                                              @RequestBody LibroDTO updateRequest) {
         Libro updatedLibro = libroService.updateLibro(libroId, updateRequest);
