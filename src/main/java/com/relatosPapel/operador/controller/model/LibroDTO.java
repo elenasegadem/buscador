@@ -25,4 +25,6 @@ public class LibroDTO {
     private int valoracion;
 
     private boolean visibilidad;
+
+    private int stock;
 }

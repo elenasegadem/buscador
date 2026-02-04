@@ -27,4 +27,7 @@ public class CreateLibroRequest {
 
     @NotNull
     private Boolean visibilidad;
+
+    @NotNull
+    private int stock;
 }

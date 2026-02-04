@@ -9,5 +9,5 @@ public class Consts {
     public static final String ISBN = "isbn";
     public static final String VALORACION = "valoracion";
     public static final String VISIBILIDAD = "visibilidad";
-
+    public static final String STOCK = "stock";
 }
