@@ -1,6 +1,7 @@
 package com.relatosPapel.operador.controller;
 
 import com.relatosPapel.operador.controller.model.CreateLibroRequest;
+import com.relatosPapel.operador.controller.model.LibroDTO;
 import com.relatosPapel.operador.data.model.Libro;
 import com.relatosPapel.operador.service.LibroService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -140,5 +141,66 @@ public class LibroController {
         }
     }
 
+    @PatchMapping("/libros/{libroId}")
+    @Operation(
+            operationId = "Actualizar parcialmente un libro",
+            description = "Operación de escritura",
+            summary = "Actualiza parcialemente un libro específico a partir de su identificador",
+            requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
+                    description = "Datos del libro a actualizar",
+                    required = true,
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = String.class))
+            )
+    )
+    @ApiResponse(
+            responseCode = "200",
+            content = @Content(mediaType = "application/json", schema = @Schema(implementation = Libro.class))
+    )
+    @ApiResponse(
+            responseCode = "400",
+            content = @Content(mediaType = "application/json", schema = @Schema(implementation = Void.class)),
+            description = "Datos de entrada inválidos."
+    )
+    public ResponseEntity<Libro> updateLibro(@PathVariable String libroId,
+                                             @RequestBody String updateRequest) {
+        Libro updatedLibro = libroService.updateLibro(libroId, updateRequest);
+
+        if (updatedLibro != null) {
+            return ResponseEntity.ok(updatedLibro);
+        } else {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @PutMapping("/libros/{libroId}")
+    @Operation(
+            operationId = "Actualizar un libro",
+            description = "Operación de escritura",
+            summary = "Actualiza un libro específico a partir de su identificador",
+            requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
+                    description = "Datos del libro a actualizar",
+                    required = true,
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = LibroDTO.class))
+            )
+    )
+    @ApiResponse(
+            responseCode = "200",
+            content = @Content(mediaType = "application/json", schema = @Schema(implementation = Libro.class))
+    )
+    @ApiResponse(
+            responseCode = "404",
+            content = @Content(mediaType = "application/json", schema = @Schema(implementation = Void.class)),
+            description = "Libro no encontrado."
+    )
+    public ResponseEntity<Libro> updateLibro(@PathVariable String libroId,
+                                             @RequestBody LibroDTO updateRequest) {
+        Libro updatedLibro = libroService.updateLibro(libroId, updateRequest);
+
+        if (updatedLibro != null) {
+            return ResponseEntity.ok(updatedLibro);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 }
