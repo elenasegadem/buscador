@@ -131,6 +131,11 @@ public class LibroController {
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Void.class)),
             description = "Datos de entrada inválidos."
     )
+    @ApiResponse(
+            responseCode = "409",
+            content = @Content(mediaType = "application/json", schema = @Schema(implementation = Void.class)),
+            description = "ISBN ya existe."
+    )
     public ResponseEntity<Libro> createLibro(@RequestBody CreateLibroRequest createLibroRequest) {
         Libro createdLibro = libroService.createLibro(createLibroRequest);
 

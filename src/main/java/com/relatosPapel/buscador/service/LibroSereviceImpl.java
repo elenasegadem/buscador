@@ -7,6 +7,7 @@ import com.relatosPapel.buscador.controller.model.CreateLibroRequest;
 import com.relatosPapel.buscador.controller.model.LibroDTO;
 import com.relatosPapel.buscador.data.LibroRepository;
 import com.relatosPapel.buscador.data.model.Libro;
+import com.relatosPapel.buscador.exception.DuplicateISBNException;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,16 +47,20 @@ public class LibroSereviceImpl implements LibroService {
 
     @Override
     public Libro createLibro(@Valid CreateLibroRequest libroRequest) {
-        Libro libro = Libro.builder()
-                .titulo(libroRequest.getTitulo())
-                .autor(libroRequest.getAutor())
-                .fechaPublicacion(new Date())
-                .isbn(libroRequest.getIsbn())
-                .categoria(libroRequest.getCategoria())
-                .visibilidad(libroRequest.getVisibilidad())
-                .build();
+        try {
+            Libro libro = Libro.builder()
+                    .titulo(libroRequest.getTitulo())
+                    .autor(libroRequest.getAutor())
+                    .fechaPublicacion(new Date())
+                    .isbn(libroRequest.getIsbn())
+                    .categoria(libroRequest.getCategoria())
+                    .visibilidad(libroRequest.getVisibilidad())
+                    .build();
 
-        return libroRepository.save(libro);
+            return libroRepository.save(libro);
+
+        } catch (Exception e) {
+            throw new DuplicateISBNException("El ISBN ya existe: " + libroRequest.getIsbn());        }
     }
 
     @Override
