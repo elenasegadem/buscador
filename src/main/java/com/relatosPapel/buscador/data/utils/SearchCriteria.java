@@ -1,4 +1,4 @@
-package com.relatosPapel.operador.data.utils;
+package com.relatosPapel.buscador.data.utils;
 
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;

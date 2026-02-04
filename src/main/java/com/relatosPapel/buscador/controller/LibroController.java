@@ -1,9 +1,9 @@
-package com.relatosPapel.operador.controller;
+package com.relatosPapel.buscador.controller;
 
-import com.relatosPapel.operador.controller.model.CreateLibroRequest;
-import com.relatosPapel.operador.controller.model.LibroDTO;
-import com.relatosPapel.operador.data.model.Libro;
-import com.relatosPapel.operador.service.LibroService;
+import com.relatosPapel.buscador.controller.model.CreateLibroRequest;
+import com.relatosPapel.buscador.controller.model.LibroDTO;
+import com.relatosPapel.buscador.data.model.Libro;
+import com.relatosPapel.buscador.service.LibroService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;

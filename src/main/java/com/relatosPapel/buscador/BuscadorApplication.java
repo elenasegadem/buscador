@@ -1,13 +1,13 @@
-package com.relatosPapel.operador;
+package com.relatosPapel.buscador;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class OperadorApplication {
+public class BuscadorApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(OperadorApplication.class, args);
+		SpringApplication.run(BuscadorApplication.class, args);
 	}
 
 }

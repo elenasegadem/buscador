@@ -1,4 +1,4 @@
-package com.relatosPapel.operador.config;
+package com.relatosPapel.buscador.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

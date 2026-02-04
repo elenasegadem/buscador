@@ -1,10 +1,10 @@
-package com.relatosPapel.operador;
+package com.relatosPapel.buscador;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class OperadorApplicationTests {
+class BuscadorApplicationTests {
 
 	@Test
 	void contextLoads() {

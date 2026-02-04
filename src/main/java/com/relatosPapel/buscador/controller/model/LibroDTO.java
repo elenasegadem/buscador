@@ -1,4 +1,4 @@
-package com.relatosPapel.operador.controller.model;
+package com.relatosPapel.buscador.controller.model;
 
 import lombok.*;
 

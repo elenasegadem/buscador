@@ -1,6 +1,6 @@
-package com.relatosPapel.operador.data;
+package com.relatosPapel.buscador.data;
 
-import com.relatosPapel.operador.data.model.Libro;
+import com.relatosPapel.buscador.data.model.Libro;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

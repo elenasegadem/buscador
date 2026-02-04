@@ -1,9 +1,9 @@
-package com.relatosPapel.operador.service;
+package com.relatosPapel.buscador.service;
 
 
-import com.relatosPapel.operador.controller.model.CreateLibroRequest;
-import com.relatosPapel.operador.controller.model.LibroDTO;
-import com.relatosPapel.operador.data.model.Libro;
+import com.relatosPapel.buscador.controller.model.CreateLibroRequest;
+import com.relatosPapel.buscador.controller.model.LibroDTO;
+import com.relatosPapel.buscador.data.model.Libro;
 
 import java.util.Date;
 import java.util.List;

@@ -1,10 +1,10 @@
-package com.relatosPapel.operador.data;
+package com.relatosPapel.buscador.data;
 
-import com.relatosPapel.operador.data.model.Libro;
-import com.relatosPapel.operador.data.utils.Consts;
-import com.relatosPapel.operador.data.utils.SearchCriteria;
-import com.relatosPapel.operador.data.utils.SearchOperation;
-import com.relatosPapel.operador.data.utils.SearchStatement;
+import com.relatosPapel.buscador.data.model.Libro;
+import com.relatosPapel.buscador.data.utils.Consts;
+import com.relatosPapel.buscador.data.utils.SearchCriteria;
+import com.relatosPapel.buscador.data.utils.SearchOperation;
+import com.relatosPapel.buscador.data.utils.SearchStatement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.apache.commons.lang3.StringUtils;

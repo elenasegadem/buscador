@@ -1,7 +1,7 @@
-package com.relatosPapel.operador.data.model;
+package com.relatosPapel.buscador.data.model;
 
-import com.relatosPapel.operador.controller.model.LibroDTO;
-import com.relatosPapel.operador.data.utils.Consts;
+import com.relatosPapel.buscador.controller.model.LibroDTO;
+import com.relatosPapel.buscador.data.utils.Consts;
 import jakarta.persistence.*;
 import lombok.*;
 

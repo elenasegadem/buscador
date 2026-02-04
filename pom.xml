@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.relatosPapel</groupId>
-	<artifactId>Operador</artifactId>
+	<artifactId>buscador</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Operador</name>
-	<description>Microservicio 1: Operador</description>
+	<name>buscador</name>
+	<description>Microservicio 2: Buscador</description>
 	<url/>
 	<licenses>
 		<license/>

@@ -1,12 +1,12 @@
-package com.relatosPapel.operador.service;
+package com.relatosPapel.buscador.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.fge.jsonpatch.mergepatch.JsonMergePatch;
-import com.relatosPapel.operador.controller.model.CreateLibroRequest;
-import com.relatosPapel.operador.controller.model.LibroDTO;
-import com.relatosPapel.operador.data.LibroRepository;
-import com.relatosPapel.operador.data.model.Libro;
+import com.relatosPapel.buscador.controller.model.CreateLibroRequest;
+import com.relatosPapel.buscador.controller.model.LibroDTO;
+import com.relatosPapel.buscador.data.LibroRepository;
+import com.relatosPapel.buscador.data.model.Libro;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
