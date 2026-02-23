@@ -43,7 +43,7 @@ public class LibroSereviceImpl implements LibroService {
 
     @Override
     public Libro getLibro(String libroId) {
-        return libroRepository.getById(Long.valueOf(libroId));
+        return libroRepository.getById(libroId);
     }
 
     @Override

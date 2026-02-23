@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface LibroElasticsearchRepository extends ElasticsearchRepository<Libro, String> {
 
-    Optional<Libro> findById(Long id);
+    Optional<Libro> findById(String id);
 
     List<Libro> findAll();
 }

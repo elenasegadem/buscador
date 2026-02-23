@@ -37,7 +37,7 @@ public class LibroRepository {
         return libroElasticsearchRepository.findAll();
     }
 
-    public Libro getById(Long id) {
+    public Libro getById(String id) {
         return libroElasticsearchRepository.findById(id).orElse(null);
     }
 

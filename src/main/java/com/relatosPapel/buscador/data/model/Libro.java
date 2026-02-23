@@ -20,7 +20,7 @@ import java.time.LocalDate;
 public class Libro {
 
     @Id
-    private Long id;
+    private String id;
 
     @Field(type = FieldType.Text, name = Consts.TITULO)
     private String titulo;
