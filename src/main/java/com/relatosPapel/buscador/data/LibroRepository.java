@@ -55,11 +55,11 @@ public class LibroRepository {
 
         BoolQueryBuilder querySpecification = QueryBuilders.boolQuery();
 
-        if (StringUtils.isEmpty(titulo)) {
+        if (StringUtils.isNotBlank(titulo)) {
             querySpecification.must(QueryBuilders.matchQuery(Consts.TITULO, titulo));
         }
 
-        if (StringUtils.isEmpty(autor)) {
+        if (StringUtils.isNotBlank(autor)) {
             querySpecification.must(QueryBuilders.matchQuery(Consts.AUTOR, autor));
         }
 
@@ -71,7 +71,7 @@ public class LibroRepository {
             querySpecification.must(QueryBuilders.termsQuery(Consts.CATEGORIA, categoria));
         }
 
-        if (StringUtils.isEmpty(isbn)) {
+        if (StringUtils.isNotBlank(isbn)) {
             querySpecification.must(QueryBuilders.termQuery(Consts.ISBN, isbn));
         }
 
