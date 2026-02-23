@@ -60,7 +60,7 @@ public class LibroController {
             @Parameter(name = "visibilidad", description = "Visibilidad del libro", example = "true", required = false)
             @RequestParam(required = false) Boolean visibilidad,
             @Parameter(name = "page", description = "Numero de páginas que se van obtener", example = "2", required = false)
-            @RequestParam(required = false) String page
+            @RequestParam(required = true) String page
             ) {
         log.info("Headers recibidos: {}", headers);
         List<Libro> libros = libroService.getLibros(titulo, autor, fechaPublicacion, categoria, isbn, valoracion, visibilidad, page);
