@@ -4,10 +4,10 @@ spring:
 server:
     port: 8082
 opensearch:
-  host: {ELASTICSEARCH_HOST:localhost}
+  host: ${ELASTICSEARCH_HOST:localhost}
   credentials:
-    user: {ELASTICSEARCH_USERNAME:admin}
-    password: {ELASTICSEARCH_PASSWORD:admin}
+    user: ${ELASTICSEARCH_USERNAME:admin}
+    password: ${ELASTICSEARCH_PASSWORD:admin}
 eureka:
   client:
     service-url:
