@@ -50,18 +50,20 @@ public class LibroController {
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaPublicacion,
             @Parameter(name = "categoria", description = "Categoría del libro. Debe ser exacta",
                     example = "Romántica", required = false)
-            @RequestParam(required = false) String categoria,
+            @RequestParam(required = false) List<String> categoria,
             @Parameter(name = "isbn", description = "ISBN del libro. Debe ser exacto",
                     example = "1234567890123", required = false)
             @RequestParam(required = false) String isbn,
             @Parameter(name = "valoracion", description = "Valoración del libro",
                     example = "2", required = false)
-            @RequestParam(required = false) Integer valoracion,
+            @RequestParam(required = false) List<Integer> valoracion,
             @Parameter(name = "visibilidad", description = "Visibilidad del libro", example = "true", required = false)
-            @RequestParam(required = false) Boolean visibilidad
+            @RequestParam(required = false) Boolean visibilidad,
+            @Parameter(name = "page", description = "Numero de páginas que se van obtener", example = "2", required = false)
+            @RequestParam(required = false) String page
             ) {
         log.info("Headers recibidos: {}", headers);
-        List<Libro> libros = libroService.getLibros(titulo, autor, fechaPublicacion, categoria, isbn, valoracion, visibilidad);
+        List<Libro> libros = libroService.getLibros(titulo, autor, fechaPublicacion, categoria, isbn, valoracion, visibilidad, page);
 
         return ResponseEntity.ok(Objects.requireNonNullElse(libros, Collections.emptyList()));
     }

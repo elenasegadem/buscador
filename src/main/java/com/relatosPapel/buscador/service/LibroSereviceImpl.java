@@ -29,11 +29,12 @@ public class LibroSereviceImpl implements LibroService {
 
 
     @Override
-    public List<Libro> getLibros(String titulo, String autor, LocalDate fechaPublicacion, String categoria, String isbn, Integer valoracion, Boolean visibilidad) {
+    public List<Libro> getLibros(String titulo, String autor, LocalDate fechaPublicacion, List<String> categoria, String isbn, List<Integer> valoracion, Boolean visibilidad,
+                                 String page) {
 
-        if (StringUtils.hasLength(titulo) || StringUtils.hasLength(autor) || fechaPublicacion !=null || StringUtils.hasLength(categoria)
-                || StringUtils.hasLength(isbn) || valoracion!=null || visibilidad!=null) {
-            return libroRepository.search(titulo, autor, fechaPublicacion, categoria, isbn, valoracion, visibilidad);
+        if (StringUtils.hasLength(titulo) || StringUtils.hasLength(autor) || fechaPublicacion !=null || (categoria!=null && !categoria.isEmpty())
+                || StringUtils.hasLength(isbn) || (valoracion!=null && !valoracion.isEmpty())|| visibilidad!=null) {
+            return libroRepository.search(titulo, autor, fechaPublicacion, categoria, isbn, valoracion, visibilidad, page);
         }
 
         List<Libro> libros = libroRepository.getLibros();

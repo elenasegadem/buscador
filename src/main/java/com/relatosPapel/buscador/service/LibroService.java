@@ -10,8 +10,8 @@ import java.util.List;
 
 public interface LibroService {
 
-    List<Libro> getLibros(String titulo, String autor, LocalDate fechaPublicacion, String categoria,
-                          String isbn, Integer valoracion, Boolean visibilidad);
+    List<Libro> getLibros(String titulo, String autor, LocalDate fechaPublicacion, List<String> categoria, String isbn,
+                          List<Integer> valoracion, Boolean visibilidad, String page);
 
     Libro getLibro(String libroId);
 

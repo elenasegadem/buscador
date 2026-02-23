@@ -10,4 +10,7 @@ public class Consts {
     public static final String VALORACION = "valoracion";
     public static final String VISIBILIDAD = "visibilidad";
     public static final String STOCK = "stock";
+
+    public static final String AGG_KEY_TERM_CATEGORIA = "categoriaValues";
+    public static final String AGG_KEY_TERM_VALORACION = "valoracionalues";
 }

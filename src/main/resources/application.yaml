@@ -1,22 +1,13 @@
 spring:
   application:
     name: ms-books-catalogue
-  datasource:
-    url: jdbc:h2:mem:librosdb;MODE=PostgreSQL
-    driver-class-name: org.h2.Driver
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: create-drop
-    defer-datasource-initialization: true
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-      settings:
-        web-allow-others: true
 server:
     port: 8082
+opensearch:
+  host: {ELASTICSEARCH_HOST:localhost}
+  credentials:
+    user: {ELASTICSEARCH_USERNAME:admin}
+    password: {ELASTICSEARCH_PASSWORD:admin}
 eureka:
   client:
     service-url:

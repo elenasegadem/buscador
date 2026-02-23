@@ -2,13 +2,15 @@ package com.relatosPapel.buscador.data.model;
 
 import com.relatosPapel.buscador.controller.model.LibroDTO;
 import com.relatosPapel.buscador.data.utils.Consts;
-import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "libros")
+@Document(indexName = "libros", createIndex = true)
 @Getter
 @Setter
 @AllArgsConstructor
@@ -18,31 +20,30 @@ import java.time.LocalDate;
 public class Libro {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = Consts.TITULO)
+    @Field(type = FieldType.Text, name = Consts.TITULO)
     private String titulo;
 
-    @Column(name = Consts.AUTOR)
+    @Field(type = FieldType.Text, name = Consts.AUTOR)
     private String autor;
 
-    @Column(name = Consts.ISBN, unique = true)
+    @Field(type = FieldType.Keyword, name = Consts.ISBN)
     private String isbn;
 
-    @Column(name = Consts.FECHA_PUBLICACION)
+    @Field(type = FieldType.Date, name = Consts.FECHA_PUBLICACION, pattern = "yyyy-MM-dd")
     private LocalDate fechaPublicacion;
 
-    @Column(name = Consts.CATEGORIA, nullable = false)
+    @Field(type = FieldType.Keyword, name = Consts.CATEGORIA)
     private String categoria;
 
-    @Column(name = Consts.VALORACION)
+    @Field(type = FieldType.Integer, name = Consts.VALORACION)
     private int valoracion;
 
-    @Column(name = Consts.VISIBILIDAD)
+    @Field(type = FieldType.Boolean, name = Consts.VISIBILIDAD)
     private boolean visibilidad;
 
-    @Column(name = Consts.STOCK)
+    @Field(type = FieldType.Integer, name = Consts.STOCK)
     private int stock;
 
     public void update(LibroDTO libroDTO) {
