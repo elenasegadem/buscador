@@ -64,7 +64,7 @@ public class LibroRepository {
         }
 
         if (fechaPublicacion != null) {
-            querySpecification.must(QueryBuilders.termQuery(Consts.FECHA_PUBLICACION, fechaPublicacion));
+            querySpecification.must(QueryBuilders.termQuery(Consts.FECHA_PUBLICACION, fechaPublicacion.toString()));
         }
 
         if (categoria != null && !categoria.isEmpty()) {
