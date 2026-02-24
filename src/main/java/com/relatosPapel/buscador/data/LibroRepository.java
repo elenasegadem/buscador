@@ -50,17 +50,14 @@ public class LibroRepository {
     }
 
     @SneakyThrows
-    public List<Libro> search(String titulo, String autor, LocalDate fechaPublicacion, List<String> categoria,
-                              String isbn, List<Integer> valoracion, Boolean visibilidad, String page) {
+    public List<Libro> search(String tituloAutor, LocalDate fechaPublicacion, List<String> categoria,
+                              String isbn, List<Integer> valoracion, List<Float> precio,
+                              String formato, Boolean visibilidad, String page) {
 
         BoolQueryBuilder querySpecification = QueryBuilders.boolQuery();
 
-        if (StringUtils.isNotBlank(titulo)) {
-            querySpecification.must(QueryBuilders.matchQuery(Consts.TITULO, titulo));
-        }
-
-        if (StringUtils.isNotBlank(autor)) {
-            querySpecification.must(QueryBuilders.matchQuery(Consts.AUTOR, autor));
+        if (StringUtils.isNotBlank(tituloAutor)) {
+            querySpecification.must(QueryBuilders.multiMatchQuery(tituloAutor, Consts.TITULO, Consts.AUTOR));
         }
 
         if (fechaPublicacion != null) {
@@ -81,6 +78,10 @@ public class LibroRepository {
 
         if (visibilidad != null) {
             querySpecification.must(QueryBuilders.termQuery(Consts.VISIBILIDAD, visibilidad));
+        }
+
+        if (formato != null) {
+            querySpecification.must(QueryBuilders.termQuery(Consts.FORMATO, formato));
         }
 
         if (!querySpecification.hasClauses()) {

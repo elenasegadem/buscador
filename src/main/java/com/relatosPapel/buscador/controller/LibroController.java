@@ -40,12 +40,9 @@ public class LibroController {
     )
     public ResponseEntity<List<Libro>> getLibros(
             @RequestHeader Map<String, String> headers,
-            @Parameter(name = "titulo", description = "Título del libro. No tiene por que ser exacto",
+            @Parameter(name = "tituloAutor", description = "Título o Autor del libro. No tiene por que ser exacto",
                     example = "Lazarillo de Tormes", required = false)
-            @RequestParam(required = false) String titulo,
-            @Parameter(name = "autor", description = "Autor del libro. No tiene por que ser exacto",
-                    example = "Arturo Pérez", required = false)
-            @RequestParam(required = false) String autor,
+            @RequestParam(required = false) String tituloAutor,
             @Parameter(name = "fechaPublicacion", description = "Fecha de publicación del libro", example = "2026-01-01", required = false)
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaPublicacion,
             @Parameter(name = "categoria", description = "Categoría del libro. Debe ser exacta",
@@ -62,12 +59,13 @@ public class LibroController {
             @Parameter(name = "precio", description = "Precio del libro", example = "12.99", required = false)
             @RequestParam(required = false) List<Float> precio,
             @Parameter(name = "formato", description = "Formato del libro", example = "Fisico", required = false)
-            @RequestParam(required = false) Boolean formato,
+            @RequestParam(required = false) String formato,
             @Parameter(name = "page", description = "Numero de páginas que se van obtener", example = "2", required = false)
             @RequestParam(required = true) String page
             ) {
         log.info("Headers recibidos: {}", headers);
-        List<Libro> libros = libroService.getLibros(titulo, autor, fechaPublicacion, categoria, isbn, valoracion, visibilidad, page);
+        List<Libro> libros = libroService.getLibros(tituloAutor, fechaPublicacion, categoria, isbn, valoracion,
+                precio, formato, visibilidad, page);
 
         return ResponseEntity.ok(Objects.requireNonNullElse(libros, Collections.emptyList()));
     }

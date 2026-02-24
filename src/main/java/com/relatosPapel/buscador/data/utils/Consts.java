@@ -14,6 +14,7 @@ public class Consts {
     public static final String FORMATO = "formato";
     public static final String IMAGE_URL = "imageUrl";
     public static final String DESCRIPCION = "descripcion";
+
     public static final String AGG_KEY_TERM_CATEGORIA = "categoriaValues";
     public static final String AGG_KEY_TERM_VALORACION = "valoracionalues";
 }
