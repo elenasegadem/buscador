@@ -46,6 +46,18 @@ public class Libro {
     @Field(type = FieldType.Integer, name = Consts.STOCK)
     private int stock;
 
+    @Field(type = FieldType.Keyword, name = Consts.FORMATO)
+    private String formato;
+
+    @Field(type = FieldType.Float, name = Consts.PRECIO)
+    private Float precio;
+
+    @Field(type = FieldType.Text, name = Consts.IMAGE_URL)
+    private String imageUrl;
+
+    @Field(type = FieldType.Text, name = Consts.DESCRIPCION)
+    private String descripcion;
+
     public void update(LibroDTO libroDTO) {
         this.titulo = libroDTO.getTitulo();
         this.autor = libroDTO.getAutor();

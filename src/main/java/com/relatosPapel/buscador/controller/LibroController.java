@@ -59,6 +59,10 @@ public class LibroController {
             @RequestParam(required = false) List<Integer> valoracion,
             @Parameter(name = "visibilidad", description = "Visibilidad del libro", example = "true", required = false)
             @RequestParam(required = false) Boolean visibilidad,
+            @Parameter(name = "precio", description = "Precio del libro", example = "12.99", required = false)
+            @RequestParam(required = false) List<Float> precio,
+            @Parameter(name = "formato", description = "Formato del libro", example = "Fisico", required = false)
+            @RequestParam(required = false) Boolean formato,
             @Parameter(name = "page", description = "Numero de páginas que se van obtener", example = "2", required = false)
             @RequestParam(required = true) String page
             ) {
