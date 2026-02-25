@@ -2,6 +2,7 @@ package com.relatosPapel.buscador.controller;
 
 import com.relatosPapel.buscador.controller.model.CreateLibroRequest;
 import com.relatosPapel.buscador.controller.model.LibroDTO;
+import com.relatosPapel.buscador.controller.model.LibroQueryResponse;
 import com.relatosPapel.buscador.data.model.Libro;
 import com.relatosPapel.buscador.service.LibroService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -38,7 +39,7 @@ public class LibroController {
             responseCode = "200",
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Libro.class))
     )
-    public ResponseEntity<List<Libro>> getLibros(
+    public ResponseEntity<LibroQueryResponse> getLibros(
             @RequestHeader Map<String, String> headers,
             @Parameter(name = "tituloAutor", description = "Título o Autor del libro. No tiene por que ser exacto",
                     example = "Lazarillo de Tormes", required = false)
@@ -64,10 +65,10 @@ public class LibroController {
             @RequestParam(required = true) String page
             ) {
         log.info("Headers recibidos: {}", headers);
-        List<Libro> libros = libroService.getLibros(tituloAutor, fechaPublicacion, categoria, isbn, valoracion,
+        LibroQueryResponse libros = libroService.getLibros(tituloAutor, fechaPublicacion, categoria, isbn, valoracion,
                 precio, formato, visibilidad, page);
 
-        return ResponseEntity.ok(Objects.requireNonNullElse(libros, Collections.emptyList()));
+        return ResponseEntity.ok(libros);
     }
 
     @GetMapping("/libros/{libroId}")

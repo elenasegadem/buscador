@@ -50,7 +50,7 @@ public class LibroRepository {
     }
 
     @SneakyThrows
-    public List<Libro> search(String tituloAutor, LocalDate fechaPublicacion, List<String> categoria,
+    public LibroQueryResponse search(String tituloAutor, LocalDate fechaPublicacion, List<String> categoria,
                               String isbn, List<Integer> valoracion, List<Float> precio,
                               String formato, Boolean visibilidad, String page) {
 
@@ -118,7 +118,7 @@ public class LibroRepository {
 
         SearchHits<Libro> results = openSearchClient.search(query, Libro.class);
 
-        return new LibroQueryResponse(getResponseLibro(results), getResponseAggregations(results)).getLibros();
+        return new LibroQueryResponse(getResponseLibro(results), getResponseAggregations(results));
     }
 
     private List<Libro> getResponseLibro(SearchHits<Libro> result) {

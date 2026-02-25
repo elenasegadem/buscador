@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.fge.jsonpatch.mergepatch.JsonMergePatch;
 import com.relatosPapel.buscador.controller.model.CreateLibroRequest;
 import com.relatosPapel.buscador.controller.model.LibroDTO;
+import com.relatosPapel.buscador.controller.model.LibroQueryResponse;
 import com.relatosPapel.buscador.data.LibroRepository;
 import com.relatosPapel.buscador.data.model.Libro;
 import com.relatosPapel.buscador.exception.DuplicateISBNException;
@@ -29,8 +30,8 @@ public class LibroSereviceImpl implements LibroService {
 
 
     @Override
-    public List<Libro> getLibros(String tituloAutor, LocalDate fechaPublicacion, List<String> categoria, String isbn,
-                                 List<Integer> valoracion, List<Float> precio, String formato, Boolean visibilidad, String page) {
+    public LibroQueryResponse getLibros(String tituloAutor, LocalDate fechaPublicacion, List<String> categoria, String isbn,
+                                              List<Integer> valoracion, List<Float> precio, String formato, Boolean visibilidad, String page) {
 
         if (StringUtils.hasLength(tituloAutor) || StringUtils.hasLength(formato) || fechaPublicacion !=null || (categoria!=null && !categoria.isEmpty())
                 || StringUtils.hasLength(isbn) || (valoracion!=null && !valoracion.isEmpty())|| visibilidad!=null
@@ -38,8 +39,9 @@ public class LibroSereviceImpl implements LibroService {
             return libroRepository.search(tituloAutor, fechaPublicacion, categoria, isbn, valoracion, precio, formato, visibilidad, page);
         }
 
-        List<Libro> libros = libroRepository.getLibros();
-        return libros.isEmpty() ? null : libros;
+        LibroQueryResponse libroQueryResponse = new LibroQueryResponse();
+        libroQueryResponse.setLibros(libroRepository.getLibros());
+        return libroQueryResponse;
     }
 
     @Override
