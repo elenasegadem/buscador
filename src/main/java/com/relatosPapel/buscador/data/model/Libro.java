@@ -66,5 +66,10 @@ public class Libro {
         this.valoracion = libroDTO.getValoracion();
         this.visibilidad = libroDTO.isVisibilidad();
         this.stock = libroDTO.getStock();
+        this.formato = libroDTO.getFormato();
+        this.precio = libroDTO.getPrecio();
+        this.imageUrl = libroDTO.getImageUrl();
+        this.descripcion = libroDTO.getDescripcion();
+
     }
 }

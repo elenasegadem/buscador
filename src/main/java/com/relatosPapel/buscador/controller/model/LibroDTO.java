@@ -23,4 +23,12 @@ public class LibroDTO {
     private boolean visibilidad;
 
     private int stock;
+
+    private String formato;
+
+    private String imageUrl;
+
+    private String descripcion;
+
+    private Float precio;
 }

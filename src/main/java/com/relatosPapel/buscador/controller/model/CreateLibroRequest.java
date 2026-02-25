@@ -37,4 +37,16 @@ public class CreateLibroRequest {
 
     @NotNull
     private LocalDate fechaPublicacion;
+
+    @NotNull
+    private String formato;
+
+    @NotNull
+    private String imageUrl;
+
+    @NotNull
+    private String descripcion;
+
+    @NotNull
+    private String precio;
 }
