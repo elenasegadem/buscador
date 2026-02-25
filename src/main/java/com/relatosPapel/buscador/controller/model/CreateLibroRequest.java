@@ -48,5 +48,5 @@ public class CreateLibroRequest {
     private String descripcion;
 
     @NotNull
-    private String precio;
+    private Float precio;
 }

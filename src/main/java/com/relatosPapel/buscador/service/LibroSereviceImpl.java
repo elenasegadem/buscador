@@ -50,6 +50,11 @@ public class LibroSereviceImpl implements LibroService {
                     .isbn(libroRequest.getIsbn())
                     .categoria(libroRequest.getCategoria())
                     .visibilidad(libroRequest.getVisibilidad())
+                    .stock(libroRequest.getStock())
+                    .formato(libroRequest.getFormato())
+                    .imageUrl(libroRequest.getImageUrl())
+                    .descripcion(libroRequest.getDescripcion())
+                    .precio(libroRequest.getPrecio())
                     .build();
 
             return libroRepository.save(libro);

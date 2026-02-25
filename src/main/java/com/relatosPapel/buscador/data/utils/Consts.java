@@ -16,5 +16,5 @@ public class Consts {
     public static final String DESCRIPCION = "descripcion";
 
     public static final String AGG_KEY_TERM_CATEGORIA = "categoriaValues";
-    public static final String AGG_KEY_TERM_VALORACION = "valoracionalues";
+    public static final String AGG_KEY_TERM_VALORACION = "valoracionlues";
 }
