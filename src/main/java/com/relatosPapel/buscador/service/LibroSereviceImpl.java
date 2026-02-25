@@ -32,16 +32,7 @@ public class LibroSereviceImpl implements LibroService {
     @Override
     public LibroQueryResponse getLibros(String tituloAutor, LocalDate fechaPublicacion, List<String> categoria, String isbn,
                                               List<Integer> valoracion, List<Float> precio, String formato, Boolean visibilidad, String page) {
-
-        if (StringUtils.hasLength(tituloAutor) || StringUtils.hasLength(formato) || fechaPublicacion !=null || (categoria!=null && !categoria.isEmpty())
-                || StringUtils.hasLength(isbn) || (valoracion!=null && !valoracion.isEmpty())|| visibilidad!=null
-                || precio!=null && !precio.isEmpty()) {
-            return libroRepository.search(tituloAutor, fechaPublicacion, categoria, isbn, valoracion, precio, formato, visibilidad, page);
-        }
-
-        LibroQueryResponse libroQueryResponse = new LibroQueryResponse();
-        libroQueryResponse.setLibros(libroRepository.getLibros());
-        return libroQueryResponse;
+        return libroRepository.search(tituloAutor, fechaPublicacion, categoria, isbn, valoracion, precio, formato, visibilidad, page);
     }
 
     @Override
