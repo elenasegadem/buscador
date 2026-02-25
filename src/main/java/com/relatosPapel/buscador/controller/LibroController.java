@@ -62,7 +62,7 @@ public class LibroController {
             @Parameter(name = "formato", description = "Formato del libro", example = "Fisico", required = false)
             @RequestParam(required = false) String formato,
             @Parameter(name = "page", description = "Numero de páginas que se van obtener", example = "2", required = false)
-            @RequestParam(required = true) String page
+            @RequestParam(required = true, defaultValue = "0") String page
             ) {
         log.info("Headers recibidos: {}", headers);
         LibroQueryResponse libros = libroService.getLibros(tituloAutor, fechaPublicacion, categoria, isbn, valoracion,
