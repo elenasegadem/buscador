@@ -84,6 +84,18 @@ public class LibroRepository {
             querySpecification.must(QueryBuilders.termQuery(Consts.FORMATO, formato));
         }
 
+        if (precio != null && !precio.isEmpty()) {
+           Float min = precio.getFirst();
+           Float max = precio.size() > 1 ? precio.get(1) : null;
+
+           if (max != null) {
+               querySpecification.must(QueryBuilders.rangeQuery(Consts.PRECIO)
+                       .gte(min).lte(max));
+           } else {
+               querySpecification.must(QueryBuilders.rangeQuery(Consts.PRECIO).gte(min));
+           }
+        }
+
         if (!querySpecification.hasClauses()) {
             querySpecification.must(QueryBuilders.matchAllQuery());
         }
