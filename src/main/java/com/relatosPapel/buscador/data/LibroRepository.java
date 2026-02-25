@@ -13,6 +13,7 @@ import org.opensearch.index.query.QueryBuilders;
 import org.opensearch.search.aggregations.Aggregation;
 import org.opensearch.search.aggregations.AggregationBuilders;
 import org.opensearch.search.aggregations.bucket.filter.ParsedFilters;
+import org.opensearch.search.aggregations.bucket.terms.ParsedLongTerms;
 import org.opensearch.search.aggregations.bucket.terms.ParsedStringTerms;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
@@ -143,6 +144,13 @@ public class LibroRepository {
                             responseAggregations.get(key).add(new AggregationDetails(bucket.getKey().toString(), (int) bucket.getDocCount()))
                     );
                 }
+
+                if (value instanceof ParsedLongTerms parsedLongTerms) {
+                    parsedLongTerms.getBuckets().forEach(bucket ->
+                            responseAggregations.get(key).add(new AggregationDetails(bucket.getKeyAsString(), (int) bucket.getDocCount()))
+                    );
+                }
+
 
                 if (value instanceof ParsedFilters parsedFilters) {
                     parsedFilters.getBuckets().forEach(bucket ->
