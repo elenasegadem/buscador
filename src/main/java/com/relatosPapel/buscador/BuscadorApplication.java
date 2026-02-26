@@ -10,7 +10,6 @@ public class BuscadorApplication {
 		SpringApplication.run(BuscadorApplication.class, args);
 		String profile = System.getenv("PROFILE");
 		System.setProperty("spring.profiles.active", profile != null ? profile : "default");
-		// Railway's internal interface takes some time to start. We wait for it to be ready.
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
