@@ -16,6 +16,4 @@ eureka:
     fetch-registry: true
   instance:
     prefer-ip-address: true
-    hostname: ms-books-catalogue
-
 
