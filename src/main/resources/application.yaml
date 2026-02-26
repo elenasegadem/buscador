@@ -16,5 +16,5 @@ eureka:
     fetch-registry: true
   instance:
     prefer-ip-address: true
-    hostname: buscador.railway.internal
+    hostname: ms-books-catalogue
 
